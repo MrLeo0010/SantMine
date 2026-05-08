@@ -14,7 +14,8 @@
     <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
     
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-md border-b border-white/10">
+
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-glass">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-3">
@@ -91,44 +92,41 @@
         </div>
     </section>
 
-    <!-- Features Section -->
+        <!-- Features Section -->
     <section id="features" class="py-20 relative">
         <div class="container mx-auto px-6">
             <h2 class="font-title text-3xl md:text-4xl font-bold text-center mb-4 text-green-400">Почему SantMine?</h2>
             <p class="text-gray-400 text-center mb-16 max-w-2xl mx-auto">Мы создали идеальное место для вашего игрового опыта</p>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="stats-card card-glass rounded-2xl p-8 transition-all duration-300 border border-transparent">
-                    <div class="w-14 h-14 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="stats-card card-glass rounded-2xl p-8 transition-all duration-300">
+                    <div class="feature-icon-box bg-icon-green">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Уникальный лор</h3>
-                    <p class="text-gray-400">Мрачный авторский лор переплетается с ироничным сюжетом, создавая уникальную атмосферу, где за каждой шуткой скрывается пугающая тайна</p>
+                    <p class="text-gray-400">Мрачный авторский лор переплетается с ироничным сюжетом, создавая уникальную атмосферу.</p>
                 </div>
                 
-                <!-- Feature 2 -->
-                <div class="stats-card card-glass rounded-2xl p-8 transition-all duration-300 border border-transparent">
-                    <div class="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                <div class="stats-card card-glass rounded-2xl p-8 transition-all duration-300">
+                    <div class="feature-icon-box bg-icon-blue">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>                        
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Множество мини-игр</h3>
-                    <p class="text-gray-400">Куча уникальных мини-игр, от напряженных хорроров и экшн-режимов до расслабляющих гриндилок — наши игры создаются с душой, а не ради выгоды. Найдите развлечение по вкусу в месте, где контент важнее монетизации</p>
+                    <h3 class="text-xl font-bold mb-3">Мини-игры</h3>
+                    <p class="text-gray-400">Куча уникальных режимов, от хорроров до расслабляющих гриндилок, созданных с душой.</p>
                 </div>
                 
-                <!-- Feature 3 -->
-                <div class="stats-card card-glass rounded-2xl p-8 transition-all duration-300 border border-transparent">
-                    <div class="w-14 h-14 bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="stats-card card-glass rounded-2xl p-8 transition-all duration-300">
+                    <div class="feature-icon-box bg-icon-purple">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Уникальные текстуры</h3>
-                    <p class="text-gray-400">Наш ресурс-пак создан специально для сервера и добавляет атмосферу в игру</p>
+                    <h3 class="text-xl font-bold mb-3">Текстуры</h3>
+                    <p class="text-gray-400">Наш ресурс-пак создан специально для сервера и полностью меняет восприятие игры.</p>
                 </div>
             </div>
         </div>
@@ -136,22 +134,19 @@
 
     <!-- Download Section -->
     <section id="download" class="py-20 relative">
-        <div class="container mx-auto px-6">
-            <div class="max-w-3xl mx-auto">
-                <div class="card-glass rounded-3xl p-10 md:p-14 text-center relative overflow-hidden">
-                    <!-- Background Decoration -->
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-green-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+        <div class="max-w-2xl mx-auto">
+            <div class="card-glass rounded-3xl p-10 md:p-14 text-center relative overflow-hidden">
+                
+                <div class="relative z-10">
+                    <div class="download-icon-box">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10">
+                            </path>
+                        </svg>
+                    </div>
                     
-                    <div class="relative z-10">
-                        <!-- Icon -->
-                        <div class="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center glow-green">
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
-                            </svg>
-                        </div>
-                        
-                        <h2 class="font-title text-3xl md:text-4xl font-bold mb-4 text-white">Скачать ресурс-пак</h2>
+                    <h2 class="font-title text-3xl md:text-4xl font-bold mb-4 text-white">Скачать ресурс-пак</h2>
                         <p class="text-gray-400 mb-8 max-w-lg mx-auto">
                             Скачай официальный ресурс-пак сервера SantMine для полного погружения в игру. 
                             Уникальные текстуры, звуки и модели ждут тебя!

@@ -1,5 +1,7 @@
 html {
     height: 100%;
+    background: linear-gradient(135deg, #0a0f1a 0%, #1a1f2e 50%, #0d1117 100%);
+    background-attachment: fixed;
 }
 
 * {
@@ -10,21 +12,32 @@ html {
     font-family: 'Orbitron', sans-serif;
 }
 
+/* Обновленный фон для всего сайта */
+
 body {
-    background: linear-gradient(135deg, #0a0f1a 0%, #1a1f2e 50%, #0d1117 100%);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;
     margin: 0;
     padding: 0;
+    color: white;
+    background: transparent; /* Обязательно прозрачный, так как фон на html */
+    min-height: 100vh;
 }
 
+/* Удалите блок body::before полностью, он больше не нужен */
+
+/* Исправляем hero-bg, чтобы он не перекрывал основной градиент черным цветом */
 .hero-bg {
     background: 
         radial-gradient(ellipse at 50% 0%, rgba(76, 175, 80, 0.15) 0%, transparent 50%),
         radial-gradient(ellipse at 80% 20%, rgba(33, 150, 243, 0.1) 0%, transparent 40%),
         radial-gradient(ellipse at 20% 80%, rgba(156, 39, 176, 0.1) 0%, transparent 40%);
+    /* Убедитесь, что здесь нет фонового цвета, только градиенты-пятна */
+}
+
+.nav-glass {
+    background: rgba(0, 0, 0, 0.4) !important; /* Темная полупрозрачная подложка */
+    backdrop-filter: blur(12px) saturate(180%); /* Сильное размытие и сочность */
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Тонкая линия снизу */
 }
 
 .glow-green {
@@ -39,6 +52,10 @@ body {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+section {
+    background: transparent !important;
 }
 
 .download-btn {
@@ -66,6 +83,36 @@ body {
 .download-btn:hover {
     transform: translateY(-3px) scale(1.02);
     box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4), 0 0 50px rgba(76, 175, 80, 0.2);
+}
+
+/* Базовый стиль для контейнера иконки */
+.feature-icon-box {
+    width: 64px; /* Размер как на скриншоте */
+    height: 64px;
+    border-radius: 16px; /* Мягкое скругление */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Цвета фонов */
+.bg-icon-green { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.bg-icon-blue { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.bg-icon-purple { background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%); }
+
+/* Контейнер иконки в секции скачивания */
+.download-icon-box {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 32px;
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
 }
 
 .float-animation {
