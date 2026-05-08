@@ -1,3 +1,7 @@
+html {
+    height: 100%;
+}
+
 * {
     font-family: 'Exo 2', sans-serif;
 }
@@ -8,7 +12,12 @@
 
 body {
     background: linear-gradient(135deg, #0a0f1a 0%, #1a1f2e 50%, #0d1117 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 .hero-bg {
