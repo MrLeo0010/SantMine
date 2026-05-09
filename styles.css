@@ -163,7 +163,14 @@ section {
 }
 
 .copy-btn {
-    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.copy-btn:active {
+    transform: scale(0.9);
 }
 
 .copy-btn:hover {
@@ -172,4 +179,17 @@ section {
 
 .copy-btn.copied {
     background: rgba(76, 175, 80, 0.3);
+}
+
+
+
+.ip-container {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.ip-container:hover {
+    border-color: rgba(74, 222, 128, 0.8);
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.1);
+    transform: translateY(-1px);
 }
