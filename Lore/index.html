@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SantMine - Minecraft Server</title>
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/MrLeo0010/SantMine/refs/heads/main/favicon.png" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="text-white overflow-x-hidden">
+    <!-- Particles Background -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Navigation -->
+
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-glass">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <img src="../avatar.png" alt="SantMine" class="w-10 h-10 rounded-lg">
+                    <span class="font-title text-xl font-bold text-green-400">SantMine</span>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="text-gray-300 hover:text-green-400 transition-colors">Главная</a>
+                    <a href="#features" class="text-gray-300 hover:text-green-400 transition-colors">Особенности</a>
+                    <a href="#download" class="text-gray-300 hover:text-green-400 transition-colors">Скачать</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+<section id="home" class="hero-bg min-h-screen flex items-center justify-center relative pt-32 pb-20">
+        <div class="container mx-auto px-6 relative z-10">
+            
+            <div id="screenshots" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="aspect-[16/9] rounded-2xl card-glass border border-white/10 hover:border-green-500/30 overflow-hidden flex items-center justify-center group transition-all duration-300">
+                    <img src="1.png" alt="Скриншот 1" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden'); syncHistoryHeight();">
+                </div>
+
+                <div class="aspect-[16/9] rounded-2xl card-glass border border-white/10 hover:border-green-500/30 overflow-hidden flex items-center justify-center group transition-all duration-300">
+                    <img src="2.png" alt="Скриншот 2" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden'); syncHistoryHeight();">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                
+
+
+                <div id="historyCard" class="md:col-span-12 mx-auto text-left bg-[#05070a]/40 border border-white/5 p-8 rounded-2xl backdrop-blur-sm nav-glass min-h-[360px] transition-all duration-300">
+                    <h2 class="font-title text-2xl md:text-3xl font-bold mb-4 text-green-400 glow-text-sm">Добро пожаловать в историю SantMine</h2>
+                    <div class="text-gray-300 space-y-4 leading-relaxed text-sm md:text-base max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+                        <p class="font-semibold text-green-300">Либо тут начинается текст и идет вот так:</p>
+                        <p>
+                            Здесь ты можешь разместить полноценное описание своего сервера, раскрыть детали мрачного авторского лора, 
+                            рассказать предысторию мира или выкатить свежий список изменений грядущего обновления. 
+                            Вёрстка полностью адаптивна — на телефонах эти блоки красиво выстроятся в один вертикальный ряд, 
+                            а на мониторах займут позиции в точности как на твоем эскизе.
+                        </p>
+                        <p>
+                            Дополнительный абзац текста для проверки прокрутки, если его станет слишком много. 
+                            Наши мини-игры и уникальные плагины создаются с душой, а этот текстовый блок поможет 
+                            погрузить игрока в атмосферу проекта ещё до того, как он скопирует IP-адрес.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-white/10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <img src="../avatar.png" alt="SantMine" class="w-8 h-8 rounded-lg">
+                    <span class="font-title font-bold text-green-400">SantMine</span>
+                </div>
+                <p class="text-gray-500 text-sm">
+                    © 2026 SantMine. Все права защищены.
+                </p>
+                <div class="flex items-center gap-4">
+                    <a href="https://t.me/server_sant" target="_blank" class="text-gray-400 hover:text-green-400 transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyIP() {
+            const ipText = document.getElementById('serverIP').innerText;
+            const copyIcon = document.getElementById('copyIcon');
+            const checkIcon = document.getElementById('checkIcon');
+
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(ipText).then(() => {
+                    // 1. Показываем галочку, скрываем копирование
+                    copyIcon.classList.add('hidden');
+                    checkIcon.classList.remove('hidden');
+
+                    // 2. Устанавливаем таймер на 2000 мс (2 секунды)
+                    setTimeout(() => {
+                        // 3. Возвращаем всё как было
+                        copyIcon.classList.remove('hidden');
+                        checkIcon.classList.add('hidden');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Ошибка при копировании: ', err);
+                });
+            }
+        }
+
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 4 + 's';
+                particle.style.animationDuration = (3 + Math.random() * 3) + 's';
+                particle.style.opacity = 0.3 + Math.random() * 0.4;
+                particle.style.width = (2 + Math.random() * 4) + 'px';
+                particle.style.height = particle.style.width;
+                container.appendChild(particle);
+            }
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        function syncHistorySize() {
+            const screenshots = document.getElementById('screenshots');
+            const historyCard = document.getElementById('historyCard');
+            if (!screenshots || !historyCard) return;
+
+            const computedStyles = getComputedStyle(screenshots);
+            const width = screenshots.clientWidth
+                + parseFloat(computedStyles.paddingLeft)
+                + parseFloat(computedStyles.paddingRight);
+            const height = screenshots.offsetHeight;
+
+            historyCard.style.minWidth = `${width}px`;
+            historyCard.style.minHeight = `${height}px`;
+        }
+
+        // Initialize
+        createParticles();
+        syncHistorySize();
+    </script>
+</body>
+</html>
