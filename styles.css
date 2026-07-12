@@ -149,12 +149,18 @@ section {
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.16);
     color: white;
-    font-size: 22px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0;
     transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.modal-close svg {
+    width: 20px;
+    height: 20px;
+    display: block;
 }
 
 .modal-close:hover {

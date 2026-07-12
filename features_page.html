@@ -50,7 +50,11 @@
 
     <div id="imageModal" class="modal-overlay" aria-hidden="true">
         <div class="modal-content">
-            <button id="closeModalBtn" class="modal-close" aria-label="Закрыть">×</button>
+            <button id="closeModalBtn" class="modal-close" aria-label="Закрыть">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                </svg>
+            </button>
             <img id="modalImage" class="modal-image" src="" alt="Просмотр изображения">
         </div>
     </div>
@@ -74,153 +78,6 @@
     </footer>
 
     <!-- Логика переключения контента -->
-    <script>
-        // 1. Наша база данных контента
-        const contentData = {
-            lore: {
-                title: "Добро пожаловать в историю SantMine",
-                imagesCount: 3,
-                folder: "Lore",
-                text: `
-                    <p class="font-semibold text-green-300">Погрузитесь в мрачный авторский лор:</p>
-                    <p>Здесь ты можешь разместить полноценное описание своего сервера, раскрыть детали мрачного авторского лора, рассказать предысторию мира или выкатить свежий список изменений грядущего обновления.</p>
-                    <p>Дополнительный абзац текста для проверки прокрутки. Наш текстовый блок поможет погрузить игрока в атмосферу проекта ещё до того, как он скопирует IP-адрес.</p>
-                `
-            },
-            minigames: {
-                title: "Уникальные Мини-Игры",
-                imagesCount: 6, // Тут 6 картинок
-                folder: "Minigames",
-                text: `
-                    <p class="font-semibold text-green-300">Развлекайся на наших аренах:</p>
-                    <p>Мы создаем уникальные плагины и режимы с душой! Опробуй наши кастомные мини-игры, соревнуйся с друзьями и зарабатывай внутриигровые награды.</p>
-                `
-            },
-            textures: {
-                title: "Фирменные Текстуры сервера",
-                imagesCount: 3,
-                folder: "Textures",
-                text: `
-                    <p class="font-semibold text-green-300">Официальный ресурспак:</p>
-                    <p>Для полной атмосферы рекомендуем установить наш текстурпак. Он заменяет стандартные предметы, добавляет кастомное оружие, интерфейсы и элементы погружения в Лор.</p>
-                `
-            },
-            nothing: {
-                title: "А что ты тут делаешь?",
-                imagesCount: 0,
-                folder: "",
-                text: `
-                    <p class="font-semibold text-red-400">Ошибка 404:</p>
-                    <p>Тута пусто. Бегом на главную страницу!</p>
-
-                    <a href="index.html#home" class="escape-btn inline-flex items-center justify-center px-6 py-3 rounded-xl font-bold text-white mt-4">
-                        Сбежать отсюда
-                    </a>
-                `
-            }
-        };
-
-        // 2. Определяем, какую страницу открыл пользователь
-        const urlParams = new URLSearchParams(window.location.search);
-        let pageType = urlParams.get('type');
-
-        // Если параметр пустой ИЛИ такого ключа нет в нашей базе данных — включаем "nothing"
-        if (!pageType || !contentData[pageType]) {
-            pageType = 'nothing';
-        }
-
-        // Теперь безопасно берем данные
-        const data = contentData[pageType];
-
-        if (data) {
-            // Заполняем тексты
-            document.getElementById('page-title').innerHTML = data.title;
-            document.getElementById('page-text').innerHTML = data.text;
-
-            // Генерируем скриншоты в цикле
-            const screenshotsContainer = document.getElementById('screenshots-container');
-            const modalOverlay = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-            const closeModalBtn = document.getElementById('closeModalBtn');
-
-            function openImageModal(src) {
-                modalImage.src = src;
-                modalOverlay.classList.add('active');
-                modalOverlay.setAttribute('aria-hidden', 'false');
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeImageModal() {
-                modalOverlay.classList.remove('active');
-                modalOverlay.setAttribute('aria-hidden', 'true');
-                document.body.style.overflow = '';
-                modalImage.src = '';
-            }
-
-            closeModalBtn.addEventListener('click', closeImageModal);
-            modalOverlay.addEventListener('click', (event) => {
-                if (event.target === modalOverlay) {
-                    closeImageModal();
-                }
-            });
-
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape' && modalOverlay.classList.contains('active')) {
-                    closeImageModal();
-                }
-            });
-
-            for (let i = 1; i <= data.imagesCount; i++) {
-                const imgCard = document.createElement('div');
-                imgCard.className = "screenshot-card aspect-[16/9] rounded-2xl card-glass border border-white/10 hover:border-green-500/30 overflow-hidden flex items-center justify-center group transition-all duration-300";
-                
-                const img = document.createElement('img');
-                img.src = `${data.folder}/${i}.png`;
-                img.alt = `Скриншот ${i}`;
-                img.className = "screenshot-image w-full h-full object-cover hidden";
-                img.addEventListener('load', () => {
-                    img.classList.remove('hidden');
-                    syncHistorySize();
-                });
-                img.addEventListener('click', () => openImageModal(img.src));
-                imgCard.appendChild(img);
-                screenshotsContainer.appendChild(imgCard);
-            }
-        }
-
-        // Анимация частиц
-        function createParticles() {
-            const container = document.getElementById('particles');
-            const particleCount = 30;
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 4 + 's';
-                particle.style.animationDuration = (3 + Math.random() * 3) + 's';
-                particle.style.opacity = 0.3 + Math.random() * 0.4;
-                particle.style.width = (2 + Math.random() * 4) + 'px';
-                particle.style.height = particle.style.width;
-                container.appendChild(particle);
-            }
-        }
-
-        function syncHistorySize() {
-            const screenshots = document.getElementById('screenshots-container');
-            const historyCard = document.getElementById('historyCard');
-            if (!screenshots || !historyCard) return;
-
-            const computedStyles = getComputedStyle(screenshots);
-            const width = screenshots.clientWidth + parseFloat(computedStyles.paddingLeft) + parseFloat(computedStyles.paddingRight);
-            const height = screenshots.offsetHeight;
-
-            historyCard.style.minWidth = `${width}px`;
-            historyCard.style.minHeight = `${height}px`;
-        }
-
-        createParticles();
-        window.addEventListener('resize', syncHistorySize);
-    </script>
+    <script src="./scripts/features_page.js"></script>
 </body>
 </html>
