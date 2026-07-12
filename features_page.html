@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SantMine - Minecraft Server</title>
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/MrLeo0010/SantMine/refs/heads/main/favicon.png" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="text-white overflow-x-hidden">
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Навигация -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-glass">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html#home" class="flex items-center gap-3">
+                    <img src="avatar.png" alt="SantMine" class="w-10 h-10 rounded-lg">
+                    <span class="font-title text-xl font-bold text-green-400">SantMine</span>
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html#home" class="text-gray-300 hover:text-green-400 transition-colors">Главная</a>
+                    <a href="index.html#features" class="text-gray-300 hover:text-green-400 transition-colors">Особенности</a>
+                    <a href="index.html#download" class="text-gray-300 hover:text-green-400 transition-colors">Скачать</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <section class="hero-bg min-h-screen flex items-center justify-center relative pt-32 pb-20">
+        <div class="container mx-auto px-6 relative z-10">
+            
+            <!-- Сюда JavaScript вставит скриншоты -->
+            <div id="screenshots-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <div id="historyCard" class="md:col-span-12 mx-auto text-left bg-[#05070a]/40 border border-white/5 p-8 rounded-2xl backdrop-blur-sm nav-glass min-h-[360px] transition-all duration-300">
+                    <!-- Сюда вставится заголовок -->
+                    <h2 id="page-title" class="font-title text-2xl md:text-3xl font-bold mb-4 text-green-400 glow-text-sm"></h2>
+                    <!-- Сюда вставится текст -->
+                    <div id="page-text" class="text-gray-300 space-y-4 leading-relaxed text-sm md:text-base max-h-[400px] overflow-y-auto pr-2 custom-scrollbar"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="py-10 border-t border-white/10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <img src="avatar.png" alt="SantMine" class="w-8 h-8 rounded-lg">
+                    <span class="font-title font-bold text-green-400">SantMine</span>
+                </div>
+                <p class="text-gray-500 text-sm">© 2026 SantMine. Все права защищены.</p>
+                <div class="flex items-center gap-4">
+                    <a href="https://t.me/server_sant" target="_blank" class="text-gray-400 hover:text-green-400 transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Логика переключения контента -->
+    <script>
+        // 1. Наша база данных контента
+        const contentData = {
+            lore: {
+                title: "Добро пожаловать в историю SantMine",
+                imagesCount: 3,
+                folder: "Lore",
+                text: `
+                    <p class="font-semibold text-green-300">Погрузитесь в мрачный авторский лор:</p>
+                    <p>Здесь ты можешь разместить полноценное описание своего сервера, раскрыть детали мрачного авторского лора, рассказать предысторию мира или выкатить свежий список изменений грядущего обновления.</p>
+                    <p>Дополнительный абзац текста для проверки прокрутки. Наш текстовый блок поможет погрузить игрока в атмосферу проекта ещё до того, как он скопирует IP-адрес.</p>
+                `
+            },
+            minigames: {
+                title: "Уникальные Мини-Игры",
+                imagesCount: 6, // Тут 6 картинок
+                folder: "Minigames",
+                text: `
+                    <p class="font-semibold text-green-300">Развлекайся на наших аренах:</p>
+                    <p>Мы создаем уникальные плагины и режимы с душой! Опробуй наши кастомные мини-игры, соревнуйся с друзьями и зарабатывай внутриигровые награды.</p>
+                `
+            },
+            textures: {
+                title: "Фирменные Текстуры сервера",
+                imagesCount: 3,
+                folder: "Textures",
+                text: `
+                    <p class="font-semibold text-green-300">Официальный ресурспак:</p>
+                    <p>Для полной атмосферы рекомендуем установить наш текстурпак. Он заменяет стандартные предметы, добавляет кастомное оружие, интерфейсы и элементы погружения в Лор.</p>
+                `
+            },
+            nothing: {
+                title: "А что ты тут делаешь?",
+                imagesCount: 0,
+                folder: "",
+                text: `
+                    <p class="font-semibold text-red-400">Ошибка 404:</p>
+                    <p>Тута пусто. Бегом на главную страницу!</p>
+                `
+            }
+        };
+
+        // 2. Определяем, какую страницу открыл пользователь
+        // Берем параметр "type" из ссылки, например: page.html?type=lore
+        const urlParams = new URLSearchParams(window.location.search);
+        const pageType = urlParams.get('type') || 'nothing'; // Если ничего не указано, откроем страницу "nothing"
+
+        // Получаем данные для текущей страницы
+        const data = contentData[pageType];
+
+        if (data) {
+            // Заполняем тексты
+            document.getElementById('page-title').innerHTML = data.title;
+            document.getElementById('page-text').innerHTML = data.text;
+
+            // Генерируем скриншоты в цикле
+            const screenshotsContainer = document.getElementById('screenshots-container');
+            for (let i = 1; i <= data.imagesCount; i++) {
+                const imgCard = document.createElement('div');
+                imgCard.className = "aspect-[16/9] rounded-2xl card-glass border border-white/10 hover:border-green-500/30 overflow-hidden flex items-center justify-center group transition-all duration-300";
+                
+                imgCard.innerHTML = `
+                    <img src="${data.folder}/${i}.png" alt="Скриншот ${i}" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden'); syncHistorySize();">
+                `;
+                screenshotsContainer.appendChild(imgCard);
+            }
+        }
+
+        // Анимация частиц
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 30;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 4 + 's';
+                particle.style.animationDuration = (3 + Math.random() * 3) + 's';
+                particle.style.opacity = 0.3 + Math.random() * 0.4;
+                particle.style.width = (2 + Math.random() * 4) + 'px';
+                particle.style.height = particle.style.width;
+                container.appendChild(particle);
+            }
+        }
+
+        function syncHistorySize() {
+            const screenshots = document.getElementById('screenshots-container');
+            const historyCard = document.getElementById('historyCard');
+            if (!screenshots || !historyCard) return;
+
+            const computedStyles = getComputedStyle(screenshots);
+            const width = screenshots.clientWidth + parseFloat(computedStyles.paddingLeft) + parseFloat(computedStyles.paddingRight);
+            const height = screenshots.offsetHeight;
+
+            historyCard.style.minWidth = `${width}px`;
+            historyCard.style.minHeight = `${height}px`;
+        }
+
+        createParticles();
+        window.addEventListener('resize', syncHistorySize);
+    </script>
+</body>
+</html>
