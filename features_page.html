@@ -110,11 +110,15 @@
         };
 
         // 2. Определяем, какую страницу открыл пользователь
-        // Берем параметр "type" из ссылки, например: page.html?type=lore
         const urlParams = new URLSearchParams(window.location.search);
-        const pageType = urlParams.get('type') || 'nothing'; // Если ничего не указано, откроем страницу "nothing"
+        let pageType = urlParams.get('type');
 
-        // Получаем данные для текущей страницы
+        // Если параметр пустой ИЛИ такого ключа нет в нашей базе данных — включаем "nothing"
+        if (!pageType || !contentData[pageType]) {
+            pageType = 'nothing';
+        }
+
+        // Теперь безопасно берем данные
         const data = contentData[pageType];
 
         if (data) {
